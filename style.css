@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 400vh; /* Controls scroll length */
+    background: #000;
+}
+
+.scroll-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas {
+    max-width: 100%;
+    max-height: 100%;
+}
