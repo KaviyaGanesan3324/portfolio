@@ -16,12 +16,12 @@
 }
 
 body{
-    background:#ffffff;
-    color:#222;
+    background:transparent;
+    color:#111;
     overflow-x:hidden;
 }
 
-/* ===== Scroll Animation Canvas ===== */
+/* ===== Scroll Animation Background ===== */
 #animation-container{
     position:fixed;
     top:0;
@@ -29,7 +29,7 @@ body{
     width:100%;
     height:100%;
     z-index:-1;
-    opacity:0.08; /* watermark effect */
+    opacity:0.08; /* watermark look */
     pointer-events:none;
 }
 
@@ -39,27 +39,35 @@ canvas{
     object-fit:cover;
 }
 
-/* ===== Main Content ===== */
+/* ===== Layout ===== */
 .section{
     min-height:100vh;
-    padding:80px 10%;
+    padding:120px 14%;
     display:flex;
     flex-direction:column;
     justify-content:center;
 }
 
+/* NO white containers */
+.card{
+    background:transparent;
+    box-shadow:none;
+    padding:0;
+    margin-bottom:40px;
+}
+
+/* Typography */
 h1{
-    font-size:48px;
+    font-size:54px;
     font-weight:700;
-    margin-bottom:10px;
+    margin-bottom:15px;
 }
 
 h2{
-    font-size:32px;
-    margin-bottom:30px;
+    font-size:36px;
+    margin-bottom:40px;
     font-weight:600;
-    border-left:5px solid #0a66c2;
-    padding-left:15px;
+    color:#0a66c2;
 }
 
 h3{
@@ -68,9 +76,13 @@ h3{
 }
 
 p{
-    font-size:16px;
-    line-height:1.8;
+    font-size:17px;
+    line-height:1.9;
     margin-bottom:15px;
+}
+
+ul{
+    padding-left:20px;
 }
 
 .highlight{
@@ -78,33 +90,23 @@ p{
     font-weight:600;
 }
 
-.card{
-    background:rgba(255,255,255,0.85);
-    backdrop-filter:blur(4px);
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 5px 25px rgba(0,0,0,0.05);
-    margin-bottom:25px;
-}
-
 .skills-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:50px;
 }
 
 .footer{
     text-align:center;
-    padding:40px;
+    padding:80px;
     font-size:14px;
-    color:#666;
 }
 </style>
 </head>
 
 <body>
 
-<!-- Scroll Animation Background -->
+<!-- Scroll Animation -->
 <div id="animation-container">
     <canvas id="scrollCanvas"></canvas>
 </div>
@@ -130,15 +132,13 @@ p{
     <div class="card">
         <h3>B.E. Electronics and Communication Engineering</h3>
         <p>Government College of Engineering, Tirunelveli</p>
-        <p><strong>2021 – 2025</strong></p>
-        <p>CGPA: 8.9</p>
+        <p>2021 – 2025 | CGPA: 8.9</p>
     </div>
 
     <div class="card">
         <h3>Higher Secondary Education</h3>
         <p>Nadar Higher Secondary School, Kovilpatti</p>
-        <p><strong>2019 – 2021</strong></p>
-        <p>Percentage: 92%</p>
+        <p>2019 – 2021 | 92%</p>
     </div>
 </section>
 
@@ -149,26 +149,15 @@ p{
     <div class="card">
         <h3>Rockfall Prediction & Alarm System</h3>
         <p>
-            A real-time safety system engineered to detect and predict potential 
-            rockfall or landslide events in mountainous terrains.
+            Real-time safety system engineered to detect and predict potential 
+            rockfall or landslide events.
         </p>
         <p>
-            The system leverages an array of environmental sensors interfaced 
-            with microcontrollers to continuously monitor geological conditions 
-            including vibration, tilt, moisture, and seismic activity.
+            Uses vibration, tilt, moisture & seismic sensors with Arduino / ESP32.
         </p>
         <p>
-            Upon detecting abnormal thresholds, the system triggers immediate 
-            alert notifications via GSM/Wi-Fi modules enabling timely evacuation 
-            and accident prevention.
+            GSM / Wi-Fi modules trigger instant alerts for evacuation.
         </p>
-
-        <p><strong>Technologies Used:</strong></p>
-        <ul>
-            <li>Arduino / ESP32</li>
-            <li>Vibration, Tilt & Moisture Sensors</li>
-            <li>GSM / Wi-Fi Communication Modules</li>
-        </ul>
     </div>
 </section>
 
@@ -177,25 +166,24 @@ p{
     <h2>Skills</h2>
 
     <div class="skills-grid">
-        <div class="card">
-            <h3>Technical Skills</h3>
+        <div>
+            <h3>Technical</h3>
             <p>Embedded Systems</p>
             <p>IoT</p>
             <p>Communication Systems</p>
             <p>Circuit Design</p>
             <p>Sensor Interfacing</p>
-            <p>Microcontrollers</p>
         </div>
 
-        <div class="card">
+        <div>
             <h3>Programming</h3>
             <p>C</p>
             <p>Python</p>
-            <p>Arduino Programming</p>
+            <p>Arduino</p>
             <p>MATLAB</p>
         </div>
 
-        <div class="card">
+        <div>
             <h3>Soft Skills</h3>
             <p>Problem Solving</p>
             <p>Teamwork</p>
@@ -208,13 +196,10 @@ p{
 <!-- ACHIEVEMENTS -->
 <section class="section">
     <h2>Achievements</h2>
-
-    <div class="card">
-        <p><strong>Intra-College Hackathon:</strong> Participated and presented innovative real-time safety solution.</p>
-        <p><strong>Technical Paper Presentation:</strong> Presented "Rockfall Prediction and Alarm System" to expert panel.</p>
-        <p><strong>Academic Excellence:</strong> Maintained CGPA of 8.9 throughout engineering program.</p>
-        <p><strong>Higher Secondary Topper:</strong> Scored 92% with distinction.</p>
-    </div>
+    <p>Intra-College Hackathon – Real-time safety system.</p>
+    <p>Technical Paper Presentation – Rockfall Prediction System.</p>
+    <p>Academic Excellence – CGPA 8.9.</p>
+    <p>Higher Secondary Distinction – 92%.</p>
 </section>
 
 <div class="footer">
@@ -226,45 +211,35 @@ const frameCount = 240;
 const canvas = document.getElementById("scrollCanvas");
 const context = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+function resizeCanvas(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
 
-const currentFrame = index => 
-  `frames/ezgif-frame-${String(index).padStart(3, '0')}.jpg`;
+const currentFrame = index =>
+  `frames/ezgif-frame-${String(index).padStart(3,'0')}.jpg`;
 
 const images = [];
-const img = new Image();
 
-for (let i = 1; i <= frameCount; i++) {
-  const image = new Image();
-  image.src = currentFrame(i);
-  images.push(image);
+for(let i=1;i<=frameCount;i++){
+    const img = new Image();
+    img.src = currentFrame(i);
+    images.push(img);
 }
 
-img.src = currentFrame(1);
+window.addEventListener('scroll',()=>{
+    const scrollTop = document.documentElement.scrollTop;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollFraction = scrollTop / maxScroll;
+    const frameIndex = Math.min(frameCount-1,
+        Math.floor(scrollFraction * frameCount));
 
-img.onload = function(){
-  context.drawImage(img, 0, 0, canvas.width, canvas.height);
-}
-
-window.addEventListener('scroll', () => {
-  const scrollTop = document.documentElement.scrollTop;
-  const maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
-  const scrollFraction = scrollTop / maxScrollTop;
-  const frameIndex = Math.min(
-    frameCount - 1,
-    Math.ceil(scrollFraction * frameCount)
-  );
-
-  requestAnimationFrame(() => {
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    context.drawImage(images[frameIndex], 0, 0, canvas.width, canvas.height);
-  });
-});
-
-window.addEventListener('resize', () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+    requestAnimationFrame(()=>{
+        context.clearRect(0,0,canvas.width,canvas.height);
+        context.drawImage(images[frameIndex],0,0,canvas.width,canvas.height);
+    });
 });
 </script>
 
