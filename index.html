@@ -1,16 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Scrollable Frame Animation</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G. Kaviya | ECE Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    height:600vh; /* Controls animation smoothness */
+    background:#0a0a0a;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ===== Background Canvas ===== */
+
+#animationCanvas{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-2;
+}
+
+/* Transparent overlay to dull background */
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.65);
+    z-index:-1;
+}
+
+/* ===== Content Layout ===== */
+
+section{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:80px 10%;
+}
+
+.content-box{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    padding:50px;
+    border-radius:20px;
+    width:100%;
+    max-width:1100px;
+    box-shadow:0 0 40px rgba(0,0,0,0.6);
+}
+
+/* ===== Typography ===== */
+
+h1{
+    font-size:48px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+h2{
+    font-size:32px;
+    margin-bottom:25px;
+    font-weight:600;
+    border-left:4px solid #00f7ff;
+    padding-left:15px;
+}
+
+h3{
+    margin-top:15px;
+    color:#00f7ff;
+}
+
+p{
+    line-height:1.7;
+    margin-bottom:15px;
+    font-weight:300;
+}
+
+.highlight{
+    color:#00f7ff;
+    font-weight:600;
+}
+
+/* ===== Lists ===== */
+
+ul{
+    list-style:none;
+    padding-left:0;
+}
+
+ul li{
+    margin-bottom:10px;
+    padding-left:20px;
+    position:relative;
+}
+
+ul li::before{
+    content:"•";
+    position:absolute;
+    left:0;
+    color:#00f7ff;
+}
+
+/* ===== Footer ===== */
+
+footer{
+    text-align:center;
+    padding:30px;
+    font-size:14px;
+    opacity:0.7;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    h1{font-size:32px;}
+    h2{font-size:24px;}
+    .content-box{padding:30px;}
+}
+
+</style>
 </head>
 <body>
 
-    <div class="scroll-container">
-        <canvas id="animationCanvas"></canvas>
-    </div>
+<canvas id="animationCanvas"></canvas>
+<div class="overlay"></div>
 
-    <script src="script.js"></script>
+<!-- HERO SECTION -->
+<section>
+<div class="content-box">
+<h1>G. Kaviya</h1>
+<p class="highlight">Electronics & Communication Engineer</p>
+<p>
+Aspiring ECE professional with a strong academic foundation (CGPA 8.9), driven by a passion for embedded systems, IoT, and real-time safety technologies.
+Innovator behind the <span class="highlight">Rockfall Prediction & Alarm System</span>, committed to engineering solutions that protect lives and push boundaries.
+</p>
+<p>Email: kaviya@3324gmail.com</p>
+</div>
+</section>
+
+<!-- EDUCATION -->
+<section>
+<div class="content-box">
+<h2>Education</h2>
+
+<h3>2021 – 2025</h3>
+<p><strong>B.E. Electronics and Communication Engineering</strong><br>
+Government College of Engineering, Tirunelveli<br>
+CGPA: 8.9</p>
+
+<h3>2019 – 2021</h3>
+<p><strong>Higher Secondary Education</strong><br>
+Nadar Higher Secondary School, Kovilpatti<br>
+Percentage: 92%</p>
+
+</div>
+</section>
+
+<!-- PROJECT -->
+<section>
+<div class="content-box">
+<h2>Featured Project</h2>
+<h3>Rockfall Prediction & Alarm System</h3>
+
+<p>
+A real-time safety system engineered to detect and predict potential rockfall or landslide events in mountainous terrains.
+The system leverages environmental sensors interfaced with microcontrollers to monitor vibration, tilt, moisture, and seismic activity.
+Upon detecting abnormal thresholds, it triggers immediate alerts via GSM/Wi-Fi modules.
+</p>
+
+<ul>
+<li><strong>Microcontrollers:</strong> Arduino / ESP32</li>
+<li><strong>Sensor Array:</strong> Vibration, Tilt & Moisture Sensors</li>
+<li><strong>Communication:</strong> GSM / Wi-Fi Alert Modules</li>
+</ul>
+
+</div>
+</section>
+
+<!-- SKILLS -->
+<section>
+<div class="content-box">
+<h2>Skills</h2>
+
+<h3>Technical Skills</h3>
+<ul>
+<li>Embedded Systems</li>
+<li>IoT</li>
+<li>Communication Systems</li>
+<li>Circuit Design</li>
+<li>Sensor Interfacing</li>
+<li>Microcontrollers</li>
+</ul>
+
+<h3>Programming</h3>
+<ul>
+<li>C</li>
+<li>Python</li>
+<li>Arduino Programming</li>
+<li>MATLAB</li>
+</ul>
+
+<h3>Soft Skills</h3>
+<ul>
+<li>Problem Solving</li>
+<li>Teamwork</li>
+<li>Presentation Skills</li>
+<li>Innovation</li>
+</ul>
+
+</div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section>
+<div class="content-box">
+<h2>Achievements</h2>
+
+<ul>
+<li>Intra-College Hackathon – Presented innovative real-time safety solution.</li>
+<li>Technical Paper Presentation – Rockfall Prediction & Alarm System.</li>
+<li>Academic Excellence – Maintained CGPA 8.9.</li>
+<li>Higher Secondary Topper – 92% with distinction.</li>
+</ul>
+
+</div>
+</section>
+
+<footer>
+© 2025 G. Kaviya — Built with passion for engineering
+</footer>
+
+<script>
+
+// ===== Scroll Frame Animation =====
+
+const canvas = document.getElementById("animationCanvas");
+const context = canvas.getContext("2d");
+
+const frameCount = 240;
+const images = [];
+const imageSeq = { frame: 0 };
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const currentFrame = index =>
+  `frames/ezgif-frame-${String(index).padStart(3, '0')}.jpg`;
+
+for (let i = 1; i <= frameCount; i++) {
+  const img = new Image();
+  img.src = currentFrame(i);
+  images.push(img);
+}
+
+images[0].onload = () => {
+  context.globalAlpha = 0.25; /* watermark transparency */
+  context.drawImage(images[0], 0, 0, canvas.width, canvas.height);
+};
+
+window.addEventListener("scroll", () => {
+
+  const scrollTop = document.documentElement.scrollTop;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollFraction = scrollTop / maxScroll;
+
+  const frameIndex = Math.min(
+    frameCount - 1,
+    Math.floor(scrollFraction * frameCount)
+  );
+
+  requestAnimationFrame(() => {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.globalAlpha = 0.25; /* watermark effect */
+    context.drawImage(images[frameIndex], 0, 0, canvas.width, canvas.height);
+  });
+
+});
+
+</script>
+
 </body>
 </html>
