@@ -1,62 +1,44 @@
-<script>
-
 const canvas = document.getElementById("animationCanvas");
 const context = canvas.getContext("2d");
 
 const frameCount = 240;
-const images = [];
-let currentFrameIndex = 0;
+const currentFrame = index => 
+    `frames/ezgif-frame-${String(index).padStart(3, '0')}.jpg`;
 
+const images = [];
+const imageSeq = {
+    frame: 0,
+};
+
+// Set canvas size
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const currentFrame = index =>
-  `frames/ezgif-frame-${String(index).padStart(3, '0')}.jpg`;
-
-// Preload frames
+// Preload images
 for (let i = 1; i <= frameCount; i++) {
-  const img = new Image();
-  img.src = currentFrame(i);
-  images.push(img);
+    const img = new Image();
+    img.src = currentFrame(i);
+    images.push(img);
 }
 
-images[0].onload = () => drawFrame(0);
+// Draw first frame when loaded
+images[0].onload = () => {
+    context.drawImage(images[0], 0, 0, canvas.width, canvas.height);
+};
 
-function drawFrame(index) {
-  context.clearRect(0, 0, canvas.width, canvas.height);
-
-  // Slight glow highlight
-  context.filter = "brightness(1.2) contrast(1.1)";
-  context.globalAlpha = 0.5;
-
-  context.drawImage(images[index], 0, 0, canvas.width, canvas.height);
-
-  context.filter = "none";
-}
-
+// Scroll animation
 window.addEventListener("scroll", () => {
+    const scrollTop = document.documentElement.scrollTop;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollFraction = scrollTop / maxScroll;
 
-  const scrollTop = document.documentElement.scrollTop;
-  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-  const scrollFraction = scrollTop / maxScroll;
+    const frameIndex = Math.min(
+        frameCount - 1,
+        Math.floor(scrollFraction * frameCount)
+    );
 
-  const frameIndex = Math.min(
-    frameCount - 1,
-    Math.floor(scrollFraction * frameCount)
-  );
-
-  if (frameIndex !== currentFrameIndex) {
-    currentFrameIndex = frameIndex;
-    requestAnimationFrame(() => drawFrame(frameIndex));
-  }
-
+    requestAnimationFrame(() => {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(images[frameIndex], 0, 0, canvas.width, canvas.height);
+    });
 });
-
-// Resize fix
-window.addEventListener("resize", () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  drawFrame(currentFrameIndex);
-});
-
-</script>
