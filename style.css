@@ -1,25 +1,104 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f172a;
+  color: #ffffff;
+}
+
 .scroll-animation {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  z-index: -2;
-}
-
-/* Dark overlay */
-.scroll-animation::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(10, 15, 25, 0.75); /* Duller effect */
-  backdrop-filter: blur(3px); /* Soft blur */
-  z-index: 1;
+  z-index: -1;
 }
 
 canvas {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+}
+
+.content {
+  padding: 100vh 10% 100px 10%;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.section {
+  margin-bottom: 60px;
+}
+
+h1 {
+  font-size: 36px;
+  color: #38bdf8;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  color: #facc15;
+  border-bottom: 2px solid #facc15;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: square;
+}
+
+footer {
+  text-align: center;
+  margin-top: 80px;
+  opacity: 0.6;
+}
+
+/* Chatbot */
+
+.chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 320px;
+  background: #1e293b;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+.chat-header {
+  background: #38bdf8;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.chat-body {
+  height: 250px;
+  overflow-y: auto;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.chat-input {
+  display: flex;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  outline: none;
+}
+
+.chat-input button {
+  padding: 8px;
+  border: none;
+  background: #38bdf8;
+  cursor: pointer;
 }
