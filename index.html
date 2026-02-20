@@ -54,15 +54,20 @@ section{
     justify-content:center;
     padding:80px 10%;
 }
-
 .content-box{
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(10px);
-    padding:50px;
-    border-radius:20px;
-    width:100%;
-    max-width:1100px;
-    box-shadow:0 0 40px rgba(0,0,0,0.6);
+    background: rgba(255, 255, 255, 0.12);   /* light glass */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    padding: 50px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 1100px;
+
+    border: 1px solid rgba(255,255,255,0.3);
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.3);
 }
 
 /* ===== Typography ===== */
@@ -71,32 +76,34 @@ h1{
     font-size:48px;
     font-weight:700;
     margin-bottom:10px;
+    color:#ffffff;
 }
 
 h2{
     font-size:32px;
     margin-bottom:25px;
     font-weight:600;
-    border-left:4px solid #00f7ff;
+    border-left:4px solid #00eaff;
     padding-left:15px;
+    color:#ffffff;
 }
 
 h3{
     margin-top:15px;
-    color:#00f7ff;
+    color:#00eaff;
 }
 
 p{
     line-height:1.7;
     margin-bottom:15px;
-    font-weight:300;
+    font-weight:400;
+    color:#f1f1f1;
 }
 
 .highlight{
-    color:#00f7ff;
+    color:#00eaff;
     font-weight:600;
 }
-
 /* ===== Lists ===== */
 
 ul{
