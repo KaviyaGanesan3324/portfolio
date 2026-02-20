@@ -1,116 +1,24 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    height:600vh;
-    background:#000;
-    color:white;
-    overflow-x:hidden;
+body {
+    height: 400vh; /* Controls scroll length */
+    background: #000;
 }
 
-/* ===== Background Canvas ===== */
-
-#animationCanvas{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:-1;
+.scroll-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* REMOVE dark overlay completely */
-
-/* ===== Content Layout ===== */
-
-section{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:80px 10%;
-}
-
-.content-box{
-    background:rgba(15, 25, 35, 0.45);   /* transparent glass */
-    backdrop-filter:blur(6px);
-    -webkit-backdrop-filter:blur(6px);
-
-    padding:50px;
-    border-radius:20px;
-    width:100%;
-    max-width:1100px;
-
-    border:1px solid rgba(0,255,255,0.3);
-
-    box-shadow:
-        0 0 25px rgba(0,255,255,0.2),
-        0 0 60px rgba(0,0,0,0.6);
-}
-
-/* ===== Typography ===== */
-
-h1{
-    font-size:48px;
-    font-weight:700;
-    margin-bottom:10px;
-    color:#ffffff;
-}
-
-h2{
-    font-size:32px;
-    margin-bottom:25px;
-    font-weight:600;
-    border-left:4px solid #00f7ff;
-    padding-left:15px;
-}
-
-h3{
-    margin-top:15px;
-    color:#00f7ff;
-}
-
-p{
-    line-height:1.7;
-    margin-bottom:15px;
-    font-weight:300;
-    color:#e6faff;
-}
-
-.highlight{
-    color:#00f7ff;
-    font-weight:600;
-}
-
-/* ===== Lists ===== */
-
-ul{
-    list-style:none;
-    padding-left:0;
-}
-
-ul li{
-    margin-bottom:10px;
-    padding-left:20px;
-    position:relative;
-}
-
-ul li::before{
-    content:"•";
-    position:absolute;
-    left:0;
-    color:#00f7ff;
-}
-
-/* ===== Footer ===== */
-
-footer{
-    text-align:center;
-    padding:30px;
-    font-size:14px;
-    opacity:0.7;
+canvas {
+    max-width: 100%;
+    max-height: 100%;
 }
