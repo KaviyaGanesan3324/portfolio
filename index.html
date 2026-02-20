@@ -1,88 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>G. Kaviya | ECE Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G. Kaviya | ECE Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#ffffff;
+    color:#222;
+    overflow-x:hidden;
+}
+
+/* ===== Scroll Animation Canvas ===== */
+#animation-container{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    opacity:0.08; /* watermark effect */
+    pointer-events:none;
+}
+
+canvas{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* ===== Main Content ===== */
+.section{
+    min-height:100vh;
+    padding:80px 10%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+h1{
+    font-size:48px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+h2{
+    font-size:32px;
+    margin-bottom:30px;
+    font-weight:600;
+    border-left:5px solid #0a66c2;
+    padding-left:15px;
+}
+
+h3{
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+p{
+    font-size:16px;
+    line-height:1.8;
+    margin-bottom:15px;
+}
+
+.highlight{
+    color:#0a66c2;
+    font-weight:600;
+}
+
+.card{
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(4px);
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 25px rgba(0,0,0,0.05);
+    margin-bottom:25px;
+}
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.footer{
+    text-align:center;
+    padding:40px;
+    font-size:14px;
+    color:#666;
+}
+</style>
 </head>
+
 <body>
 
-<!-- Scroll Animation Canvas -->
-<section class="scroll-animation">
-  <canvas id="frameCanvas"></canvas>
-</section>
+<!-- Scroll Animation Background -->
+<div id="animation-container">
+    <canvas id="scrollCanvas"></canvas>
+</div>
 
-<!-- Resume Content -->
-<section class="content">
-
-  <div class="hero">
+<!-- HERO -->
+<section class="section">
     <h1>Electronics & Communication Engineer</h1>
     <h2>G. Kaviya</h2>
     <p>
-      Aspiring ECE professional with CGPA 8.9, passionate about Embedded Systems,
-      IoT, and Real-Time Safety Technologies.
+        Aspiring ECE professional with a strong academic foundation 
+        (<span class="highlight">CGPA 8.9</span>), driven by a passion for 
+        embedded systems, IoT, and real-time safety technologies.
+        Innovator behind the <span class="highlight">Rockfall Prediction & Alarm System</span>, 
+        committed to engineering solutions that protect lives and push boundaries.
     </p>
-    <p>Email: kaviya@3324gmail.com</p>
-  </div>
-
-  <div class="section">
-    <h3>Education</h3>
-    <p><strong>B.E. Electronics and Communication Engineering</strong><br>
-    Government College of Engineering, Tirunelveli (2021–2025)<br>
-    CGPA: 8.9</p>
-
-    <p><strong>Higher Secondary Education</strong><br>
-    Nadar Higher Secondary School, Kovilpatti (2019–2021)<br>
-    Percentage: 92%</p>
-  </div>
-
-  <div class="section">
-    <h3>Featured Project</h3>
-    <h4>Rockfall Prediction & Alarm System</h4>
-    <p>
-      Real-time safety system using vibration, tilt, and moisture sensors.
-      Uses Arduino/ESP32 microcontrollers and GSM/Wi-Fi modules for alerts.
-    </p>
-  </div>
-
-  <div class="section">
-    <h3>Skills</h3>
-    <ul>
-      <li>Embedded Systems</li>
-      <li>IoT</li>
-      <li>Communication Systems</li>
-      <li>Microcontrollers</li>
-      <li>C, Python, Arduino, MATLAB</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h3>Achievements</h3>
-    <ul>
-      <li>Intra-College Hackathon Participant</li>
-      <li>Technical Paper Presentation</li>
-      <li>Maintained CGPA 8.9</li>
-      <li>Scored 92% in Higher Secondary</li>
-    </ul>
-  </div>
-
-  <footer>
-    © 2025 G. Kaviya — Built with passion for engineering
-  </footer>
-
+    <p><strong>Email:</strong> kaviya@3324gmail.com</p>
 </section>
 
-<!-- Chatbot Widget -->
-<div class="chatbot">
-  <div class="chat-header">Resume Assistant</div>
-  <div class="chat-body" id="chatBody"></div>
-  <div class="chat-input">
-    <input type="text" id="userInput" placeholder="Ask about my resume...">
-    <button onclick="sendMessage()">Send</button>
-  </div>
+<!-- EDUCATION -->
+<section class="section">
+    <h2>Education</h2>
+
+    <div class="card">
+        <h3>B.E. Electronics and Communication Engineering</h3>
+        <p>Government College of Engineering, Tirunelveli</p>
+        <p><strong>2021 – 2025</strong></p>
+        <p>CGPA: 8.9</p>
+    </div>
+
+    <div class="card">
+        <h3>Higher Secondary Education</h3>
+        <p>Nadar Higher Secondary School, Kovilpatti</p>
+        <p><strong>2019 – 2021</strong></p>
+        <p>Percentage: 92%</p>
+    </div>
+</section>
+
+<!-- PROJECT -->
+<section class="section">
+    <h2>Featured Project</h2>
+
+    <div class="card">
+        <h3>Rockfall Prediction & Alarm System</h3>
+        <p>
+            A real-time safety system engineered to detect and predict potential 
+            rockfall or landslide events in mountainous terrains.
+        </p>
+        <p>
+            The system leverages an array of environmental sensors interfaced 
+            with microcontrollers to continuously monitor geological conditions 
+            including vibration, tilt, moisture, and seismic activity.
+        </p>
+        <p>
+            Upon detecting abnormal thresholds, the system triggers immediate 
+            alert notifications via GSM/Wi-Fi modules enabling timely evacuation 
+            and accident prevention.
+        </p>
+
+        <p><strong>Technologies Used:</strong></p>
+        <ul>
+            <li>Arduino / ESP32</li>
+            <li>Vibration, Tilt & Moisture Sensors</li>
+            <li>GSM / Wi-Fi Communication Modules</li>
+        </ul>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section">
+    <h2>Skills</h2>
+
+    <div class="skills-grid">
+        <div class="card">
+            <h3>Technical Skills</h3>
+            <p>Embedded Systems</p>
+            <p>IoT</p>
+            <p>Communication Systems</p>
+            <p>Circuit Design</p>
+            <p>Sensor Interfacing</p>
+            <p>Microcontrollers</p>
+        </div>
+
+        <div class="card">
+            <h3>Programming</h3>
+            <p>C</p>
+            <p>Python</p>
+            <p>Arduino Programming</p>
+            <p>MATLAB</p>
+        </div>
+
+        <div class="card">
+            <h3>Soft Skills</h3>
+            <p>Problem Solving</p>
+            <p>Teamwork</p>
+            <p>Presentation Skills</p>
+            <p>Innovation</p>
+        </div>
+    </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="section">
+    <h2>Achievements</h2>
+
+    <div class="card">
+        <p><strong>Intra-College Hackathon:</strong> Participated and presented innovative real-time safety solution.</p>
+        <p><strong>Technical Paper Presentation:</strong> Presented "Rockfall Prediction and Alarm System" to expert panel.</p>
+        <p><strong>Academic Excellence:</strong> Maintained CGPA of 8.9 throughout engineering program.</p>
+        <p><strong>Higher Secondary Topper:</strong> Scored 92% with distinction.</p>
+    </div>
+</section>
+
+<div class="footer">
+    © 2025 G. Kaviya — Built with passion for engineering
 </div>
 
-<script src="script.js"></script>
+<script>
+const frameCount = 240;
+const canvas = document.getElementById("scrollCanvas");
+const context = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const currentFrame = index => 
+  `frames/ezgif-frame-${String(index).padStart(3, '0')}.jpg`;
+
+const images = [];
+const img = new Image();
+
+for (let i = 1; i <= frameCount; i++) {
+  const image = new Image();
+  image.src = currentFrame(i);
+  images.push(image);
+}
+
+img.src = currentFrame(1);
+
+img.onload = function(){
+  context.drawImage(img, 0, 0, canvas.width, canvas.height);
+}
+
+window.addEventListener('scroll', () => {
+  const scrollTop = document.documentElement.scrollTop;
+  const maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollFraction = scrollTop / maxScrollTop;
+  const frameIndex = Math.min(
+    frameCount - 1,
+    Math.ceil(scrollFraction * frameCount)
+  );
+
+  requestAnimationFrame(() => {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.drawImage(images[frameIndex], 0, 0, canvas.width, canvas.height);
+  });
+});
+
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+</script>
+
 </body>
 </html>
