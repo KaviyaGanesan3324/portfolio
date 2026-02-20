@@ -26,7 +26,7 @@
             min-width: 100vw;
             min-height: 100vh;
             z-index: -1;
-            opacity: 0.15; /* Transparent watermark effect */
+            opacity: 0.15; 
             pointer-events: none;
         }
         .glass-card {
@@ -56,14 +56,14 @@
     <div class="relative z-10 max-w-4xl mx-auto px-6 py-20">
         
         <header class="mb-20 text-center">
-            <h1 class="text-5xl font-bold mb-2 tracking-tight">G. [cite_start]Kaviya [cite: 2]</h1>
+            <h1 class="text-5xl font-bold mb-2 tracking-tight">G. Kaviya [cite: 2]</h1>
             [cite_start]<p class="text-cyan-400 font-mono text-lg mb-6 uppercase tracking-widest">Electronics & Communication Engineer [cite: 1]</p>
             <p class="text-gray-400 max-w-2xl mx-auto leading-relaxed">
                 [cite_start]Aspiring ECE professional with a strong academic foundation (CGPA 8.9), driven by a passion for embedded systems, IoT, and real-time safety technologies. [cite: 3]
             </p>
             <div class="mt-8">
                 <a href="mailto:kaviya@3324gmail.com" class="text-cyan-400 border border-cyan-400 px-6 py-2 rounded-full hover:bg-cyan-400 hover:text-slate-900 transition-all font-semibold">
-                    [cite_start][cite: 5] kaviya@3324gmail.com
+                    [cite_start]kaviya@3324gmail.com [cite: 5]
                 </a>
             </div>
         </header>
@@ -103,16 +103,16 @@
                 </div>
                 <p class="text-gray-400 mb-6 leading-relaxed">
                     [cite_start]A real-time safety system engineered to detect and predict potential rockfall or landslide events in mountainous terrains. [cite: 21] 
-                    [cite_start]The system leverages an array of environmental sensors interfaced with microcontrollers to continuously monitor geological conditions including vibration, tilt, moisture, and seismic activity. [cite: 22]
+                    [cite_start]The system leverages an array of environmental sensors interfaced with microcontrollers to continuously monitor geological conditions. [cite: 22]
                 </p>
                 <div class="grid md:grid-cols-2 gap-6 text-sm">
                     <div>
-                        <h4 class="text-cyan-400 font-bold mb-2">Core Tech</h4>
+                        [cite_start]<h4 class="text-cyan-400 font-bold mb-2">Core Tech [cite: 24]</h4>
                         [cite_start]<p class="text-gray-400">Arduino/ESP32 [cite: 25][cite_start], Vibration, tilt & moisture sensors [cite: 27]</p>
                     </div>
                     <div>
-                        <h4 class="text-cyan-400 font-bold mb-2">Communication</h4>
-                        [cite_start]<p class="text-gray-400">GSM/Wi-Fi alert modules for timely evacuation [cite: 23, 29]</p>
+                        [cite_start]<h4 class="text-cyan-400 font-bold mb-2">Communication [cite: 28]</h4>
+                        [cite_start]<p class="text-gray-400">GSM/Wi-Fi alert modules [cite: 29] [cite_start]for timely evacuation. [cite: 23]</p>
                     </div>
                 </div>
             </div>
@@ -160,7 +160,7 @@
                 </div>
                 <div class="p-4 border border-slate-700 rounded-lg">
                     [cite_start]<p class="font-bold">Academic Excellence [cite: 50]</p>
-                    [cite_start]<p class="text-sm text-gray-500">Maintained 8.9 CGPA throughout B.E. [cite: 51]</p>
+                    [cite_start]<p class="text-sm text-gray-500">Maintained 8.9 CGPA throughout program [cite: 51]</p>
                 </div>
                 <div class="p-4 border border-slate-700 rounded-lg">
                     [cite_start]<p class="font-bold">HSC Topper [cite: 53]</p>
@@ -170,13 +170,14 @@
         </section>
 
         <footer class="text-center py-10 border-t border-slate-800 text-gray-500 text-sm">
-            &copy; [cite_start]2025 G. Kaviya[cite: 56]. [cite_start]Built with passion for engineering. [cite: 56]
+            &copy; [cite_start]2025 G. Kaviya[cite: 56]. Built with passion for engineering.
         </footer>
     </div>
 
     <script>
         const canvas = document.getElementById('scroll-animation');
         const context = canvas.getContext('2d');
+        const html = document.documentElement;
 
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -187,7 +188,6 @@
         );
 
         const images = [];
-        const airbnb = { frame: 0 };
 
         // Preload images
         for (let i = 1; i <= frameCount; i++) {
@@ -208,13 +208,10 @@
             requestAnimationFrame(() => updateImage(frameIndex + 1));
         });
 
-        const html = document.documentElement;
-
         const updateImage = index => {
             const img = images[index - 1];
-            if(!img) return;
+            if(!img || !img.complete) return;
             
-            // Draw image scaled to cover screen
             const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
             const x = (canvas.width / 2) - (img.width / 2) * scale;
             const y = (canvas.height / 2) - (img.height / 2) * scale;
@@ -226,7 +223,6 @@
         // Initialize first frame
         images[0].onload = () => updateImage(1);
 
-        // Handle Resize
         window.addEventListener('resize', () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
