@@ -1,233 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>G. Kaviya | Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-dark: #0f172a;
-            --accent-cyan: #22d3ee;
-        }
-        body {
-            background-color: var(--bg-dark);
-            color: #e2e8f0;
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            overflow-x: hidden;
-        }
-        canvas {
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            min-width: 100vw;
-            min-height: 100vh;
-            z-index: -1;
-            opacity: 0.15; 
-            pointer-events: none;
-        }
-        .glass-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
-        }
-        .glass-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-cyan);
-        }
-        .tech-tag {
-            font-family: 'Fira Code', monospace;
-            font-size: 0.8rem;
-            background: rgba(34, 211, 238, 0.1);
-            color: var(--accent-cyan);
-            padding: 2px 8px;
-            border-radius: 4px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G. Kaviya | ECE Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    height:600vh; /* Controls animation smoothness */
+    background:#0a0a0a;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ===== Background Canvas ===== */
+
+#animationCanvas{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-2;
+}
+
+/* Transparent overlay to dull background */
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.65);
+    z-index:-1;
+}
+
+/* ===== Content Layout ===== */
+
+section{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:80px 10%;
+}
+
+.content-box{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    padding:50px;
+    border-radius:20px;
+    width:100%;
+    max-width:1100px;
+    box-shadow:0 0 40px rgba(0,0,0,0.6);
+}
+
+/* ===== Typography ===== */
+
+h1{
+    font-size:48px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+h2{
+    font-size:32px;
+    margin-bottom:25px;
+    font-weight:600;
+    border-left:4px solid #00f7ff;
+    padding-left:15px;
+}
+
+h3{
+    margin-top:15px;
+    color:#00f7ff;
+}
+
+p{
+    line-height:1.7;
+    margin-bottom:15px;
+    font-weight:300;
+}
+
+.highlight{
+    color:#00f7ff;
+    font-weight:600;
+}
+
+/* ===== Lists ===== */
+
+ul{
+    list-style:none;
+    padding-left:0;
+}
+
+ul li{
+    margin-bottom:10px;
+    padding-left:20px;
+    position:relative;
+}
+
+ul li::before{
+    content:"•";
+    position:absolute;
+    left:0;
+    color:#00f7ff;
+}
+
+/* ===== Footer ===== */
+
+footer{
+    text-align:center;
+    padding:30px;
+    font-size:14px;
+    opacity:0.7;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    h1{font-size:32px;}
+    h2{font-size:24px;}
+    .content-box{padding:30px;}
+}
+
+</style>
 </head>
 <body>
 
-    <canvas id="scroll-animation"></canvas>
+<canvas id="animationCanvas"></canvas>
+<div class="overlay"></div>
 
-    <div class="relative z-10 max-w-4xl mx-auto px-6 py-20">
-        
-        <header class="mb-20 text-center">
-            <h1 class="text-5xl font-bold mb-2 tracking-tight">G. Kaviya [cite: 2]</h1>
-            [cite_start]<p class="text-cyan-400 font-mono text-lg mb-6 uppercase tracking-widest">Electronics & Communication Engineer [cite: 1]</p>
-            <p class="text-gray-400 max-w-2xl mx-auto leading-relaxed">
-                [cite_start]Aspiring ECE professional with a strong academic foundation (CGPA 8.9), driven by a passion for embedded systems, IoT, and real-time safety technologies. [cite: 3]
-            </p>
-            <div class="mt-8">
-                <a href="mailto:kaviya@3324gmail.com" class="text-cyan-400 border border-cyan-400 px-6 py-2 rounded-full hover:bg-cyan-400 hover:text-slate-900 transition-all font-semibold">
-                    [cite_start]kaviya@3324gmail.com [cite: 5]
-                </a>
-            </div>
-        </header>
+<!-- HERO SECTION -->
+<section>
+<div class="content-box">
+<h1>G. Kaviya</h1>
+<p class="highlight">Electronics & Communication Engineer</p>
+<p>
+Aspiring ECE professional with a strong academic foundation (CGPA 8.9), driven by a passion for embedded systems, IoT, and real-time safety technologies.
+Innovator behind the <span class="highlight">Rockfall Prediction & Alarm System</span>, committed to engineering solutions that protect lives and push boundaries.
+</p>
+<p>Email: kaviya@3324gmail.com</p>
+</div>
+</section>
 
-        <section class="mb-20">
-            <h2 class="text-2xl font-bold mb-8 flex items-center gap-4">
-                [cite_start]<span class="text-cyan-400 font-mono">//</span> Education [cite: 7]
-            </h2>
-            <div class="space-y-6">
-                <div class="glass-card p-6 rounded-xl">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-xl font-bold">B.E. [cite_start]Electronics and Communication Engineering [cite: 9]</h3>
-                        [cite_start]<span class="text-cyan-400 font-mono text-sm">2021 — 2025 [cite: 8]</span>
-                    </div>
-                    [cite_start]<p class="text-gray-300">Government College of Engineering, Tirunelveli [cite: 10]</p>
-                    [cite_start]<p class="mt-2 font-semibold">CGPA: 8.9 [cite: 11]</p>
-                </div>
-                <div class="glass-card p-6 rounded-xl">
-                    <div class="flex justify-between items-start mb-2">
-                        [cite_start]<h3 class="text-xl font-bold">Higher Secondary Education [cite: 13]</h3>
-                        [cite_start]<span class="text-cyan-400 font-mono text-sm">2019 — 2021 [cite: 12]</span>
-                    </div>
-                    [cite_start]<p class="text-gray-300">Nadar Higher Secondary School, Kovilpatti [cite: 14]</p>
-                    [cite_start]<p class="mt-2 font-semibold text-cyan-400">Percentage: 92% [cite: 15]</p>
-                </div>
-            </div>
-        </section>
+<!-- EDUCATION -->
+<section>
+<div class="content-box">
+<h2>Education</h2>
 
-        <section class="mb-20">
-            <h2 class="text-2xl font-bold mb-8 flex items-center gap-4">
-                [cite_start]<span class="text-cyan-400 font-mono">//</span> Featured Work [cite: 17]
-            </h2>
-            <div class="glass-card p-8 rounded-2xl border-l-4 border-cyan-400">
-                <div class="flex justify-between items-center mb-4">
-                    [cite_start]<h3 class="text-2xl font-bold">Rockfall Prediction & Alarm System [cite: 19]</h3>
-                    [cite_start]<span class="text-xs bg-slate-800 px-3 py-1 rounded-full uppercase tracking-tighter">Hackathon Project [cite: 18]</span>
-                </div>
-                <p class="text-gray-400 mb-6 leading-relaxed">
-                    [cite_start]A real-time safety system engineered to detect and predict potential rockfall or landslide events in mountainous terrains. [cite: 21] 
-                    [cite_start]The system leverages an array of environmental sensors interfaced with microcontrollers to continuously monitor geological conditions. [cite: 22]
-                </p>
-                <div class="grid md:grid-cols-2 gap-6 text-sm">
-                    <div>
-                        [cite_start]<h4 class="text-cyan-400 font-bold mb-2">Core Tech [cite: 24]</h4>
-                        [cite_start]<p class="text-gray-400">Arduino/ESP32 [cite: 25][cite_start], Vibration, tilt & moisture sensors [cite: 27]</p>
-                    </div>
-                    <div>
-                        [cite_start]<h4 class="text-cyan-400 font-bold mb-2">Communication [cite: 28]</h4>
-                        [cite_start]<p class="text-gray-400">GSM/Wi-Fi alert modules [cite: 29] [cite_start]for timely evacuation. [cite: 23]</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<h3>2021 – 2025</h3>
+<p><strong>B.E. Electronics and Communication Engineering</strong><br>
+Government College of Engineering, Tirunelveli<br>
+CGPA: 8.9</p>
 
-        <section class="mb-20">
-            <h2 class="text-2xl font-bold mb-8 flex items-center gap-4">
-                [cite_start]<span class="text-cyan-400 font-mono">//</span> Skills [cite: 31]
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="glass-card p-6 rounded-xl">
-                    [cite_start]<h3 class="text-cyan-400 font-mono mb-4">Core Competencies [cite: 32]</h3>
-                    <div class="flex flex-wrap gap-2">
-                        [cite_start]<span class="tech-tag">Embedded Systems [cite: 33]</span>
-                        [cite_start]<span class="tech-tag">IoT [cite: 34]</span>
-                        [cite_start]<span class="tech-tag">Circuit Design [cite: 35]</span>
-                        [cite_start]<span class="tech-tag">Sensor Interfacing [cite: 35]</span>
-                        [cite_start]<span class="tech-tag">Microcontrollers [cite: 36]</span>
-                    </div>
-                </div>
-                <div class="glass-card p-6 rounded-xl">
-                    [cite_start]<h3 class="text-cyan-400 font-mono mb-4">Programming & Tools [cite: 37]</h3>
-                    <div class="flex flex-wrap gap-2">
-                        [cite_start]<span class="tech-tag">C [cite: 39]</span>
-                        [cite_start]<span class="tech-tag">Python [cite: 40]</span>
-                        [cite_start]<span class="tech-tag">MATLAB [cite: 40]</span>
-                        [cite_start]<span class="tech-tag">Arduino Programming [cite: 40]</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+<h3>2019 – 2021</h3>
+<p><strong>Higher Secondary Education</strong><br>
+Nadar Higher Secondary School, Kovilpatti<br>
+Percentage: 92%</p>
 
-        <section class="mb-20">
-            <h2 class="text-2xl font-bold mb-8 flex items-center gap-4">
-                [cite_start]<span class="text-cyan-400 font-mono">//</span> Milestones [cite: 45]
-            </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="p-4 border border-slate-700 rounded-lg">
-                    [cite_start]<p class="font-bold">Hackathon Participant [cite: 46]</p>
-                    [cite_start]<p class="text-sm text-gray-500">Presented innovative real-time safety solution [cite: 47]</p>
-                </div>
-                <div class="p-4 border border-slate-700 rounded-lg">
-                    [cite_start]<p class="font-bold">Paper Presentation [cite: 48]</p>
-                    [cite_start]<p class="text-sm text-gray-500">Rockfall System presented to expert panel [cite: 49]</p>
-                </div>
-                <div class="p-4 border border-slate-700 rounded-lg">
-                    [cite_start]<p class="font-bold">Academic Excellence [cite: 50]</p>
-                    [cite_start]<p class="text-sm text-gray-500">Maintained 8.9 CGPA throughout program [cite: 51]</p>
-                </div>
-                <div class="p-4 border border-slate-700 rounded-lg">
-                    [cite_start]<p class="font-bold">HSC Topper [cite: 53]</p>
-                    [cite_start]<p class="text-sm text-gray-500">Scored 92% with distinction [cite: 54]</p>
-                </div>
-            </div>
-        </section>
+</div>
+</section>
 
-        <footer class="text-center py-10 border-t border-slate-800 text-gray-500 text-sm">
-            &copy; [cite_start]2025 G. Kaviya[cite: 56]. Built with passion for engineering.
-        </footer>
-    </div>
+<!-- PROJECT -->
+<section>
+<div class="content-box">
+<h2>Featured Project</h2>
+<h3>Rockfall Prediction & Alarm System</h3>
 
-    <script>
-        const canvas = document.getElementById('scroll-animation');
-        const context = canvas.getContext('2d');
-        const html = document.documentElement;
+<p>
+A real-time safety system engineered to detect and predict potential rockfall or landslide events in mountainous terrains.
+The system leverages environmental sensors interfaced with microcontrollers to monitor vibration, tilt, moisture, and seismic activity.
+Upon detecting abnormal thresholds, it triggers immediate alerts via GSM/Wi-Fi modules.
+</p>
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+<ul>
+<li><strong>Microcontrollers:</strong> Arduino / ESP32</li>
+<li><strong>Sensor Array:</strong> Vibration, Tilt & Moisture Sensors</li>
+<li><strong>Communication:</strong> GSM / Wi-Fi Alert Modules</li>
+</ul>
 
-        const frameCount = 240;
-        const currentFrame = index => (
-            `frames/ezgif-frame-${index.toString().padStart(3, '0')}.jpg`
-        );
+</div>
+</section>
 
-        const images = [];
+<!-- SKILLS -->
+<section>
+<div class="content-box">
+<h2>Skills</h2>
 
-        // Preload images
-        for (let i = 1; i <= frameCount; i++) {
-            const img = new Image();
-            img.src = currentFrame(i);
-            images.push(img);
-        }
+<h3>Technical Skills</h3>
+<ul>
+<li>Embedded Systems</li>
+<li>IoT</li>
+<li>Communication Systems</li>
+<li>Circuit Design</li>
+<li>Sensor Interfacing</li>
+<li>Microcontrollers</li>
+</ul>
 
-        window.addEventListener('scroll', () => {
-            const scrollTop = html.scrollTop;
-            const maxScrollTop = html.scrollHeight - window.innerHeight;
-            const scrollFraction = scrollTop / maxScrollTop;
-            const frameIndex = Math.min(
-                frameCount - 1,
-                Math.floor(scrollFraction * frameCount)
-            );
-            
-            requestAnimationFrame(() => updateImage(frameIndex + 1));
-        });
+<h3>Programming</h3>
+<ul>
+<li>C</li>
+<li>Python</li>
+<li>Arduino Programming</li>
+<li>MATLAB</li>
+</ul>
 
-        const updateImage = index => {
-            const img = images[index - 1];
-            if(!img || !img.complete) return;
-            
-            const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
-            const x = (canvas.width / 2) - (img.width / 2) * scale;
-            const y = (canvas.height / 2) - (img.height / 2) * scale;
-            
-            context.clearRect(0, 0, canvas.width, canvas.height);
-            context.drawImage(img, x, y, img.width * scale, img.height * scale);
-        };
+<h3>Soft Skills</h3>
+<ul>
+<li>Problem Solving</li>
+<li>Teamwork</li>
+<li>Presentation Skills</li>
+<li>Innovation</li>
+</ul>
 
-        // Initialize first frame
-        images[0].onload = () => updateImage(1);
+</div>
+</section>
 
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            updateImage(1);
-        });
-    </script>
+<!-- ACHIEVEMENTS -->
+<section>
+<div class="content-box">
+<h2>Achievements</h2>
+
+<ul>
+<li>Intra-College Hackathon – Presented innovative real-time safety solution.</li>
+<li>Technical Paper Presentation – Rockfall Prediction & Alarm System.</li>
+<li>Academic Excellence – Maintained CGPA 8.9.</li>
+<li>Higher Secondary Topper – 92% with distinction.</li>
+</ul>
+
+</div>
+</section>
+
+<footer>
+© 2025 G. Kaviya — Built with passion for engineering
+</footer>
+
+<script>
+
+// ===== Scroll Frame Animation =====
+
+const canvas = document.getElementById("animationCanvas");
+const context = canvas.getContext("2d");
+
+const frameCount = 240;
+const images = [];
+const imageSeq = { frame: 0 };
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const currentFrame = index =>
+  `frames/ezgif-frame-${String(index).padStart(3, '0')}.jpg`;
+
+for (let i = 1; i <= frameCount; i++) {
+  const img = new Image();
+  img.src = currentFrame(i);
+  images.push(img);
+}
+
+images[0].onload = () => {
+  context.globalAlpha = 0.25; /* watermark transparency */
+  context.drawImage(images[0], 0, 0, canvas.width, canvas.height);
+};
+
+window.addEventListener("scroll", () => {
+
+  const scrollTop = document.documentElement.scrollTop;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollFraction = scrollTop / maxScroll;
+
+  const frameIndex = Math.min(
+    frameCount - 1,
+    Math.floor(scrollFraction * frameCount)
+  );
+
+  requestAnimationFrame(() => {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.globalAlpha = 0.25; /* watermark effect */
+    context.drawImage(images[frameIndex], 0, 0, canvas.width, canvas.height);
+  });
+
+});
+
+</script>
+
 </body>
 </html>
